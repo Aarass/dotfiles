@@ -20,7 +20,7 @@ if [ "$SHELL" != "$zsh" ]; then
     echo "$zsh" | sudo tee -a /etc/shells >/dev/null
   fi
 
-  chsh -s $zsh
+  chsh -s "$zsh"
   needs_reboot=1
 fi
 
@@ -34,6 +34,7 @@ pacman -Qi neovim &>/dev/null || sudo pacman -S --noconfirm neovim
 pacman -Qi bitwarden &>/dev/null || sudo pacman -S --noconfirm bitwarden
 pacman -Qi obsidian &>/dev/null || sudo pacman -S --noconfirm obsidian
 pacman -Qi pipewire-pulse &>/dev/null || sudo pacman -S --noconfirm pipewire-pulse
+pacman -Qi obs-studio &>/dev/null || sudo pacman -S --noconfirm obs-studio
 
 pacman -Qi nodejs &>/dev/null || sudo pacman -S --noconfirm nodejs
 pacman -Qi npm &>/dev/null || sudo pacman -S --noconfirm npm
