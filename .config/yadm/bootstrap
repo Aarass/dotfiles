@@ -1,0 +1,48 @@
+#!/bin/bash
+needs_reboot=0
+
+sudo -v
+
+pacman -Qi less &>/dev/null || sudo pacman -S --noconfirm less
+pacman -Qi rofi &>/dev/null || sudo pacman -S --noconfirm rofi
+pacman -Qi fd &>/dev/null || sudo pacman -S --noconfirm fd
+pacman -Qi lsd &>/dev/null || sudo pacman -S --noconfirm fd
+pacman -Qi zoxide &>/dev/null || sudo pacman -S --noconfirm zoxide
+
+# ZSH
+# ------------------------------------------------------------------
+pacman -Qi zsh &>/dev/null || sudo pacman -S --needed --noconfirm zsh
+
+zsh=$(which zsh)
+
+if [ "$SHELL" != "$zsh" ]; then
+  if ! grep -qxF "$zsh" /etc/shells; then
+    echo "$zsh" | sudo tee -a /etc/shells >/dev/null
+  fi
+
+  chsh -s $zsh
+  needs_reboot=1
+fi
+
+# Oh-My-Zsh
+[ -d "$HOME/.oh-my-zsh" ] || (export KEEP_ZSHRC=yes && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)")
+# ------------------------------------------------------------------
+
+pacman -Qi kitty &>/dev/null || sudo pacman -S --noconfirm kitty
+pacman -Qi tmux &>/dev/null || sudo pacman -S --noconfirm tmux
+pacman -Qi neovim &>/dev/null || sudo pacman -S --noconfirm neovim
+pacman -Qi bitwarden &>/dev/null || sudo pacman -S --noconfirm bitwarden
+pacman -Qi obsidian &>/dev/null || sudo pacman -S --noconfirm obsidian
+pacman -Qi pipewire-pulse &>/dev/null || sudo pacman -S --noconfirm pipewire-pulse
+
+pacman -Qi nodejs &>/dev/null || sudo pacman -S --noconfirm nodejs
+pacman -Qi npm &>/dev/null || sudo pacman -S --noconfirm npm
+
+yay -Qi pureref &>/dev/null || yay -S --noconfirm pureref
+yay -Qi zen-browser-bin &>/dev/null || yay -S --noconfirm zen-browser-bin
+yay -Qi slack-desktop &>/dev/null || yay -S --noconfirm slack-desktop
+
+if [ "$needs_reboot" = true ]; then
+  read -p "You need to reboot PC(y/n): " x
+  [ "$x" = y ] && reboot
+fi
