@@ -9,8 +9,13 @@ pacman -Qi rofi &>/dev/null || sudo pacman -S --noconfirm rofi
 pacman -Qi fd &>/dev/null || sudo pacman -S --noconfirm fd
 pacman -Qi lsd &>/dev/null || sudo pacman -S --noconfirm lsd
 pacman -Qi zoxide &>/dev/null || sudo pacman -S --noconfirm zoxide
+pacman -Qi playerctl &>/dev/null || sudo pacman -S --noconfirm playerctl
+pacman -Qi brightnessctl &>/dev/null || sudo pacman -S --noconfirm brightnessctl
+
 pacman -Qi nautilus &>/dev/null || sudo pacman -S --noconfirm nautilus
 pacman -Qi dolphin &>/dev/null && sudo pacman -R --noconfirm dolphin
+
+pacman -Qi udisks2 &>/dev/null || sudo pacman -S --noconfirm udisks2
 
 # ZSH
 # ------------------------------------------------------------------
