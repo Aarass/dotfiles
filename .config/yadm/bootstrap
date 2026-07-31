@@ -7,6 +7,7 @@ pacman -Qi less &>/dev/null || sudo pacman -S --noconfirm less
 pacman -Qi unzip &>/dev/null || sudo pacman -S --noconfirm unzip
 pacman -Qi rofi &>/dev/null || sudo pacman -S --noconfirm rofi
 pacman -Qi fd &>/dev/null || sudo pacman -S --noconfirm fd
+pacman -Qi fzf &>/dev/null || sudo pacman -S --noconfirm fzf
 pacman -Qi lsd &>/dev/null || sudo pacman -S --noconfirm lsd
 pacman -Qi zoxide &>/dev/null || sudo pacman -S --noconfirm zoxide
 pacman -Qi playerctl &>/dev/null || sudo pacman -S --noconfirm playerctl
@@ -36,14 +37,21 @@ fi
 [ -d "$HOME/.oh-my-zsh" ] || (export KEEP_ZSHRC=yes && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)")
 # ------------------------------------------------------------------
 
+pacman -Qi imagemagick &>/dev/null || sudo pacman -S --noconfirm imagemagick
 pacman -Qi kitty &>/dev/null || sudo pacman -S --noconfirm kitty
 pacman -Qi tmux &>/dev/null || sudo pacman -S --noconfirm tmux
-pacman -Qi neovim &>/dev/null || sudo pacman -S --noconfirm neovim
 pacman -Qi bitwarden &>/dev/null || sudo pacman -S --noconfirm bitwarden
 pacman -Qi obsidian &>/dev/null || sudo pacman -S --noconfirm obsidian
 pacman -Qi pipewire-pulse &>/dev/null || sudo pacman -S --noconfirm pipewire-pulse
 pacman -Qi obs-studio &>/dev/null || sudo pacman -S --noconfirm obs-studio
 
+pacman -Qi lua &>/dev/null || sudo pacman -S --noconfirm lua
+pacman -Qi lua51 &>/dev/null || sudo pacman -S --noconfirm lua51
+pacman -Qi luarocks &>/dev/null || sudo pacman -S --noconfirm luarocks
+pacman -Qi tree-sitter-cli &>/dev/null || sudo pacman -S --noconfirm tree-sitter-cli
+pacman -Qi neovim &>/dev/null || sudo pacman -S --noconfirm neovim
+
+pacman -Qi go &>/dev/null || sudo pacman -S --noconfirm go
 pacman -Qi nodejs &>/dev/null || sudo pacman -S --noconfirm nodejs
 pacman -Qi npm &>/dev/null || sudo pacman -S --noconfirm npm
 
@@ -69,6 +77,10 @@ yay -Qi adwaita-qt6-git &>/dev/null || yay -S --noconfirm adwaita-qt6-git
 
 gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+
+(
+  cd "$HOME" && yadm submodule update --recursive --init
+)
 
 if [ "$needs_reboot" = true ]; then
   read -p "You need to reboot PC(y/n): " x
