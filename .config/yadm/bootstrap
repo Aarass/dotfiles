@@ -8,6 +8,8 @@ pacman -Qi rofi &>/dev/null || sudo pacman -S --noconfirm rofi
 pacman -Qi fd &>/dev/null || sudo pacman -S --noconfirm fd
 pacman -Qi lsd &>/dev/null || sudo pacman -S --noconfirm fd
 pacman -Qi zoxide &>/dev/null || sudo pacman -S --noconfirm zoxide
+pacman -Qi nautilus &>/dev/null || sudo pacman -S --noconfirm nautilus
+pacman -Qi dolphin &>/dev/null && sudo pacman -R --noconfirm dolphin
 
 # ZSH
 # ------------------------------------------------------------------
@@ -39,9 +41,28 @@ pacman -Qi obs-studio &>/dev/null || sudo pacman -S --noconfirm obs-studio
 pacman -Qi nodejs &>/dev/null || sudo pacman -S --noconfirm nodejs
 pacman -Qi npm &>/dev/null || sudo pacman -S --noconfirm npm
 
+install_yay() {
+  tmpdir=$(mktemp -d) &&
+    git clone https://aur.archlinux.org/yay-bin.git "$tmpdir/yay-bin" &&
+    (
+      cd "$tmpdir/yay-bin" &&
+        makepkg -si
+    )
+  rm -rf "$tmpdir"
+}
+
+command -v yay &>/dev/null || install_yay
+
 yay -Qi pureref &>/dev/null || yay -S --noconfirm pureref
 yay -Qi zen-browser-bin &>/dev/null || yay -S --noconfirm zen-browser-bin
 yay -Qi slack-desktop &>/dev/null || yay -S --noconfirm slack-desktop
+
+pacman -Qi glib2 &>/dev/null || sudo pacman -S --noconfirm glib2
+pacman -Qi gnome-themes-extra &>/dev/null || sudo pacman -S --noconfirm gnome-themes-extra
+yay -Qi adwaita-qt6-git &>/dev/null || yay -S --noconfirm adwaita-qt6-git
+
+gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
+gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
 
 if [ "$needs_reboot" = true ]; then
   read -p "You need to reboot PC(y/n): " x
