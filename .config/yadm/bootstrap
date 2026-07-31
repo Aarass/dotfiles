@@ -4,9 +4,10 @@ needs_reboot=0
 sudo -v
 
 pacman -Qi less &>/dev/null || sudo pacman -S --noconfirm less
+pacman -Qi unzip &>/dev/null || sudo pacman -S --noconfirm unzip
 pacman -Qi rofi &>/dev/null || sudo pacman -S --noconfirm rofi
 pacman -Qi fd &>/dev/null || sudo pacman -S --noconfirm fd
-pacman -Qi lsd &>/dev/null || sudo pacman -S --noconfirm fd
+pacman -Qi lsd &>/dev/null || sudo pacman -S --noconfirm lsd
 pacman -Qi zoxide &>/dev/null || sudo pacman -S --noconfirm zoxide
 pacman -Qi nautilus &>/dev/null || sudo pacman -S --noconfirm nautilus
 pacman -Qi dolphin &>/dev/null && sudo pacman -R --noconfirm dolphin
