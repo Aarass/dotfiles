@@ -5,15 +5,11 @@ theme="$HOME/.config/rofi/themes/powermenu.rasi"
 uptime="$(uptime -p | sed -e 's/up //g')"
 
 shutdown=''
-reboot=''
+reboot=''
 lock=''
 suspend=''
-logout=''
-hibernate=''
-
-confirm_exit() {
-  "$HOME/.config/hypr/rofi/scripts/confirm.sh"
-}
+logout=''
+hibernate=''
 
 run_rofi() {
   echo -e "$lock\n$logout\n$suspend\n$hibernate\n$reboot\n$shutdown" | rofi \
@@ -21,6 +17,14 @@ run_rofi() {
     -p "Uptime: $uptime" \
     -mesg "Uptime: $uptime" \
     -theme "${theme}"
+}
+
+confirm_exit() {
+  "$HOME/.config/rofi/pickers/confirm.sh"
+}
+
+lock() {
+  pidof hyprlock || hyprlock --immediate-render --no-fade-in &
 }
 
 case "$(run_rofi)" in
@@ -35,20 +39,18 @@ $reboot)
   fi
   ;;
 $lock)
-  pidof hyprlock || hyprlock --immediate-render --no-fade-in
+  lock
   ;;
 $suspend)
   if confirm_exit; then
     wpctl set-mute @DEFAULT_AUDIO_SINK@ 1 &
     playerctl pause --all-players &
-    pidof hyprlock || hyprlock &
-    systemctl suspend
+    lock && systemctl suspend
   fi
   ;;
 $hibernate)
   if confirm_exit; then
-    pidof hyprlock || hyprlock &
-    systemctl hibernate
+    lock && systemctl hibernate
   fi
   ;;
 $logout)
