@@ -1,3 +1,5 @@
+local float = require("actions/float")
+
 hl.gesture({
 	fingers = 3,
 	direction = "horizontal",
@@ -7,7 +9,5 @@ hl.gesture({
 hl.gesture({
 	fingers = 3,
 	direction = "up",
-	action = function()
-		hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
-	end,
+	action = float,
 })

@@ -1,4 +1,5 @@
 require("modules/env")
+require("modules/misc")
 require("modules/hypr_fixes")
 require("modules/monitors")
 require("modules/layouts")
@@ -32,6 +33,8 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("~/.config/rofi/pickers/clipboard_his
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("~/.config/rofi/pickers/power_menu.sh"))
 hl.bind(mainMod .. " + D", hl.dsp.dpms({ monitor = laptopMonitor }))
 hl.bind(mainMod .. " + S", hl.dsp.workspace.move({ workspace = "+0", monitor = "+1" }))
+
+hl.bind("ALT + TAB", hl.dsp.focus({ workspace = "previous" }))
 
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot --mode region --silent -z -o $HOME/Pictures/Screenshots/"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker -and"))

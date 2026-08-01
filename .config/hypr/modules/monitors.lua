@@ -14,5 +14,5 @@ hl.monitor({
 	output = "eDP-1",
 	mode = "preferred",
 	position = "auto-right",
-	scale = "1.5",
+	scale = "1.25",
 })
