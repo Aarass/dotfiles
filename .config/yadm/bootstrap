@@ -7,6 +7,7 @@ pacman -Qi ttf-jetbrains-mono-nerd &>/dev/null || sudo pacman -S --noconfirm ttf
 
 pacman -Qi less &>/dev/null || sudo pacman -S --noconfirm less
 pacman -Qi unzip &>/dev/null || sudo pacman -S --noconfirm unzip
+pacman -Qi wofi &>/dev/null && sudo pacman -R --noconfirm wofi
 pacman -Qi rofi &>/dev/null || sudo pacman -S --noconfirm rofi
 pacman -Qi fd &>/dev/null || sudo pacman -S --noconfirm fd
 pacman -Qi fzf &>/dev/null || sudo pacman -S --noconfirm fzf
@@ -83,6 +84,10 @@ gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
 
 pacman -Qi hyprpaper &>/dev/null || sudo pacman -S --noconfirm hyprpaper
 systemctl --user enable --now hyprpaper.service
+
+pacman -Qi wl-clipboard &>/dev/null || sudo pacman -S --noconfirm wl-clipboard
+pacman -Qi cliphist &>/dev/null || sudo pacman -S --noconfirm cliphist
+sudo chmod +x ~/.config/rofi/pickers/clipboard_history.sh
 
 (
   cd "$HOME" && yadm submodule update --recursive --init
