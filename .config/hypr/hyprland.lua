@@ -35,6 +35,8 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("~/.config/rofi/pickers/clipboard_his
 hl.bind(mainMod .. " + D", hl.dsp.dpms({ monitor = laptopMonitor }))
 hl.bind(mainMod .. " + S", hl.dsp.workspace.move({ workspace = "+0", monitor = "+1" }))
 
+-- TODO hyprlock --immediate-render --no-fade-in
+
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot --mode region --silent -z -o $HOME/Pictures/Screenshots/"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker -and"))
 
