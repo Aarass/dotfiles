@@ -106,6 +106,7 @@ systemctl --user enable --now waybar.service
 
 sudo chmod +x ~/.config/rofi/pickers/confirm.sh
 sudo chmod +x ~/.config/rofi/pickers/power_menu.sh
+sudo chmod +x ~/.config/rofi/pickers/app_launcher.sh
 
 (
   cd "$HOME" && yadm submodule update --recursive --init

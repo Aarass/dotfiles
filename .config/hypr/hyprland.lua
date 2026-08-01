@@ -10,9 +10,6 @@ require("modules/look")
 
 local float = require("actions/float")
 
--- TODO remove - use script
-local menu = "rofi -show drun"
-
 local mainMonitor = "HDMI-A-1"
 local laptopMonitor = "eDP-1"
 
@@ -30,7 +27,7 @@ hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + SPACE", float)
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("kitty"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("nautilus"))
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("~/.config/rofi/pickers/app_launcher.sh"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("~/.config/rofi/pickers/clipboard_history.sh"))
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("~/.config/rofi/pickers/power_menu.sh"))
 hl.bind(mainMod .. " + D", hl.dsp.dpms({ monitor = laptopMonitor }))
