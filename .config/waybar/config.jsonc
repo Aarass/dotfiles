@@ -31,7 +31,6 @@
     "format": "{:%a, %b %d · <span  weight='extra-bold' color='#d5d1b9'>%H:%M %p</span>}",
     "markup": true,
     "tooltip": false,
-    "on-click": "/home/aaras/.local/bin/eww open powermenu --toggle",
   },
   "backlight": {
     "format": " {percent}%",
