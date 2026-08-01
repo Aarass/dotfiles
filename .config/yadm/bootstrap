@@ -3,6 +3,8 @@ needs_reboot=0
 
 sudo -v
 
+pacman -Qi ttf-jetbrains-mono-nerd &>/dev/null || sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd
+
 pacman -Qi less &>/dev/null || sudo pacman -S --noconfirm less
 pacman -Qi unzip &>/dev/null || sudo pacman -S --noconfirm unzip
 pacman -Qi rofi &>/dev/null || sudo pacman -S --noconfirm rofi
@@ -17,6 +19,7 @@ pacman -Qi nautilus &>/dev/null || sudo pacman -S --noconfirm nautilus
 pacman -Qi dolphin &>/dev/null && sudo pacman -R --noconfirm dolphin
 
 pacman -Qi udisks2 &>/dev/null || sudo pacman -S --noconfirm udisks2
+pacman -Qi hyprpolkitagent &>/dev/null || sudo pacman -S --noconfirm hyprpolkitagent
 
 # ZSH
 # ------------------------------------------------------------------
@@ -77,6 +80,9 @@ yay -Qi adwaita-qt6-git &>/dev/null || yay -S --noconfirm adwaita-qt6-git
 
 gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+
+pacman -Qi hyprpaper &>/dev/null || sudo pacman -S --noconfirm hyprpaper
+systemctl --user enable --now hyprpaper.service
 
 (
   cd "$HOME" && yadm submodule update --recursive --init
