@@ -35,6 +35,8 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("~/.config/rofi/pickers/clipboard_his
 hl.bind(mainMod .. " + D", hl.dsp.dpms({ monitor = laptopMonitor }))
 hl.bind(mainMod .. " + S", hl.dsp.workspace.move({ workspace = "+0", monitor = "+1" }))
 
+hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot --mode region --silent -z -o $HOME/Pictures/Screenshots/"))
+
 -- TODO
 -- hl.bind(mainMod .. " + W", hl.dsp.layout("togglesplit")) -- dwindle only
 
