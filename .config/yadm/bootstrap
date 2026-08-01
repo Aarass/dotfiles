@@ -18,9 +18,10 @@ pacman -Qi zoxide &>/dev/null || sudo pacman -S --noconfirm zoxide
 pacman -Qi playerctl &>/dev/null || sudo pacman -S --noconfirm playerctl
 pacman -Qi brightnessctl &>/dev/null || sudo pacman -S --noconfirm brightnessctl
 
-pacman -Qi grim &>/dev/null && sudo pacman -R --noconfirm grim
-pacman -Qi slurp &>/dev/null && sudo pacman -R --noconfirm slurp
+pacman -Qi grim &>/dev/null || sudo pacman -S --noconfirm grim
+pacman -Qi slurp &>/dev/null || sudo pacman -S --noconfirm slurp
 pacman -Qi hyprshot &>/dev/null || sudo pacman -S --noconfirm hyprshot
+pacman -Qi hyprpicker &>/dev/null || sudo pacman -S --noconfirm hyprpicker
 
 pacman -Qi nautilus &>/dev/null || sudo pacman -S --noconfirm nautilus
 pacman -Qi dolphin &>/dev/null && sudo pacman -R --noconfirm dolphin
