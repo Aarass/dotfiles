@@ -5,6 +5,8 @@ sudo -v
 
 pacman -Qi ttf-jetbrains-mono-nerd &>/dev/null || sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd
 
+pacman -Qi git &>/dev/null || sudo pacman -S --noconfirm git
+pacman -Qi base-devel &>/dev/null || sudo pacman -S --noconfirm base-devel
 pacman -Qi less &>/dev/null || sudo pacman -S --noconfirm less
 pacman -Qi unzip &>/dev/null || sudo pacman -S --noconfirm unzip
 pacman -Qi wofi &>/dev/null && sudo pacman -R --noconfirm wofi
@@ -94,6 +96,6 @@ sudo chmod +x ~/.config/rofi/pickers/clipboard_history.sh
 )
 
 if [ "$needs_reboot" = true ]; then
-  read -p "You need to reboot PC(y/n): " x
+  read -r -p "You need to reboot PC(y/n): " x
   [ "$x" = y ] && reboot
 fi
