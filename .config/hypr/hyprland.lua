@@ -32,10 +32,9 @@ hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("kitty"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("nautilus"))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("~/.config/rofi/pickers/clipboard_history.sh"))
+hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("~/.config/rofi/pickers/power_menu.sh"))
 hl.bind(mainMod .. " + D", hl.dsp.dpms({ monitor = laptopMonitor }))
 hl.bind(mainMod .. " + S", hl.dsp.workspace.move({ workspace = "+0", monitor = "+1" }))
-
--- TODO hyprlock --immediate-render --no-fade-in
 
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot --mode region --silent -z -o $HOME/Pictures/Screenshots/"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker -and"))

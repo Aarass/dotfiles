@@ -104,6 +104,9 @@ sudo chmod +x ~/.config/rofi/pickers/clipboard_history.sh
 pacman -Qi waybar &>/dev/null || sudo pacman -S --noconfirm waybar
 systemctl --user enable --now waybar.service
 
+sudo chmod +x ~/.config/rofi/pickers/confirm.sh
+sudo chmod +x ~/.config/rofi/pickers/power_menu.sh
+
 (
   cd "$HOME" && yadm submodule update --recursive --init
 )
