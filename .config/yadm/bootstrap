@@ -25,6 +25,9 @@ pacman -Qi hyprshot &>/dev/null || sudo pacman -S --noconfirm hyprshot
 pacman -Qi hyprpicker &>/dev/null || sudo pacman -S --noconfirm hyprpicker
 pacman -Qi hyprlock &>/dev/null || sudo pacman -S --noconfirm hyprlock
 
+pacman -Qi hypridle &>/dev/null || sudo pacman -S --noconfirm hypridle
+systemctl --user enable --now hypridle.service
+
 pacman -Qi nautilus &>/dev/null || sudo pacman -S --noconfirm nautilus
 pacman -Qi dolphin &>/dev/null && sudo pacman -R --noconfirm dolphin
 
