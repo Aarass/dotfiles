@@ -1,0 +1,118 @@
+/* @define-color accent #EA7B7B; */
+/* @define-color background #2a2e24; */
+/* @define-color whitish #d5d1b9; */
+/* @define-color blackish #2d353a; */
+/* @define-color accent #9eb77c; */
+
+@define-color background #2b1f29;
+@define-color accent #eaada4;
+
+/* * { */
+/*   font-size: 18px; */
+/* } */
+
+window#waybar {
+  background: transparent;
+}
+
+#workspaces {
+  font-family: "Font Awesome 7 Free";
+  background-color: @background;
+  padding: 0 0px;
+  border-radius: 0 99px 99px 0;
+  border-radius: 99px;
+}
+
+#workspaces button {
+  margin: 5px;
+  padding: 0px 5px;
+  border-radius: 99px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: @accent;
+}
+
+#workspaces button.active {
+  padding-left: 15px;
+  padding-right: 15px;
+  color: @background;
+  background-color: @accent;
+}
+
+#clock {
+  font-family: Jetbrains Mono Nerd Font;
+  padding: 0px 15px;
+  border-radius: 99px;
+  background-color: @background;
+  color: @accent;
+}
+
+#battery {
+  font-family: Jetbrains Mono Nerd Font;
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  background-color: @background;
+  margin-right: 8px;
+  padding: 0px 15px;
+  color: @accent;
+  border-radius: 99px;
+}
+
+#disk {
+  font-family: Jetbrains Mono Nerd Font;
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  background-color: @background;
+  margin-right: 8px;
+  padding: 0px 15px;
+  color: @accent;
+  border-radius: 99px;
+}
+
+#network {
+  font-family: "Font Awesome 7 Free";
+  background-color: @background;
+  color: @accent;
+}
+
+#bluetooth {
+  font-family: Jetbrains Mono Nerd Font;
+  background-color: @background;
+  margin-right: 8px;
+  padding: 0px 15px;
+  color: @accent;
+  border-radius: 99px;
+}
+
+#wireplumber {
+  font-family: Jetbrains Mono Nerd Font;
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  background-color: @background;
+  margin-right: 8px;
+  color: @accent;
+  border-radius: 99px;
+}
+
+#backlight {
+  font-family: Jetbrains Mono Nerd Font;
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  background-color: @background;
+  margin-right: 8px;
+  padding: 0px 15px;
+  color: @accent;
+  border-radius: 99px;
+}
+
+#custom-tmux {
+  font-family: Jetbrains Mono Nerd Font;
+  background-color: @background;
+  padding: 0px 15px;
+  color: @accent;
+  border-radius: 99px;
+}
+
+#custom-warnings {
+  font-family: "Font Awesome 7 Free";
+  background-color: @background;
+  color: @accent;
+  padding: 0px 15px;
+  border-radius: 99px;
+  margin-right: 8px;
+}

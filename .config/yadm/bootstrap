@@ -4,6 +4,7 @@ needs_reboot=0
 sudo -v
 
 pacman -Qi ttf-jetbrains-mono-nerd &>/dev/null || sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd
+pacman -Qi otf-font-awesome &>/dev/null || sudo pacman -S --noconfirm otf-font-awesome
 
 pacman -Qi git &>/dev/null || sudo pacman -S --noconfirm git
 pacman -Qi base-devel &>/dev/null || sudo pacman -S --noconfirm base-devel
@@ -95,6 +96,9 @@ systemctl --user enable --now hyprpaper.service
 pacman -Qi wl-clipboard &>/dev/null || sudo pacman -S --noconfirm wl-clipboard
 pacman -Qi cliphist &>/dev/null || sudo pacman -S --noconfirm cliphist
 sudo chmod +x ~/.config/rofi/pickers/clipboard_history.sh
+
+pacman -Qi waybar &>/dev/null || sudo pacman -S --noconfirm waybar
+systemctl --user enable --now waybar.service
 
 (
   cd "$HOME" && yadm submodule update --recursive --init

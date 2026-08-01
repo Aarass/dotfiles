@@ -1,0 +1,39 @@
+{
+  "layer": "bottom",
+  "margin": "8 10 0 10",
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": [],
+  "modules-right": ["battery", "clock"],
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "",
+      "9": "",
+      "10": "",
+    },
+  },
+  "battery": {
+    "bat": "BAT0",
+    "format": "{icon} {capacity}%",
+    "format-icons": {
+      "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+    },
+  },
+  "clock": {
+    "format": "{:%a, %b %d · <span  weight='extra-bold' color='#d5d1b9'>%H:%M %p</span>}",
+    "markup": true,
+    "tooltip": false,
+    "on-click": "/home/aaras/.local/bin/eww open powermenu --toggle",
+  },
+  "backlight": {
+    "format": " {percent}%",
+  },
+}
