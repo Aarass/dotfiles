@@ -112,6 +112,7 @@ command -v yay &>/dev/null || install_yay
 
 yay -Qi pureref &>/dev/null || yay -S --noconfirm pureref
 yay -Qi zen-browser-bin &>/dev/null || yay -S --noconfirm zen-browser-bin
+yay -Qi google-chrome &>/dev/null || yay -S --noconfirm google-chrome
 yay -Qi slack-desktop &>/dev/null || yay -S --noconfirm slack-desktop
 
 pacman -Qi glib2 &>/dev/null || sudo pacman -S --noconfirm glib2
@@ -142,9 +143,10 @@ git config --global delta.navigate true
 git config --global delta.dark true # or `delta.light true`, or omit for auto-detection
 git config --global merge.conflictStyle zdiff3
 
+yay -Qi localsend-bin &>/dev/null || yay -S --noconfirm localsend-bin
+
 if [[ -v IS_PERSONAL_PC ]]; then
   pacman -Qi meson &>/dev/null || sudo pacman -S --noconfirm meson
-  pacman -Qi kdeconnect &>/dev/null || sudo pacman -S --noconfirm kdeconnect
 fi
 
 (

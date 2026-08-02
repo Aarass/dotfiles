@@ -10,6 +10,7 @@ require("modules/media_keys")
 require("modules/look")
 
 local float = require("actions/float")
+local setup_dev_env = require("actions/setup_dev_env")
 
 local mainMonitor = "HDMI-A-1"
 local laptopMonitor = "eDP-1"
@@ -33,11 +34,16 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("~/.config/rofi/pickers/clipboard_his
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("~/.config/rofi/pickers/power_menu.sh"))
 hl.bind(mainMod .. " + D", hl.dsp.dpms({ monitor = laptopMonitor }))
 hl.bind(mainMod .. " + S", hl.dsp.workspace.move({ workspace = "+0", monitor = "+1" }))
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
+
+hl.bind(mainMod .. " + U", setup_dev_env)
 
 hl.bind("ALT + TAB", hl.dsp.focus({ workspace = "previous" }))
 
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot --mode region --silent -z -o $HOME/Pictures/Screenshots/"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker -and"))
+
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
 
 -- TODO
 -- hl.bind(mainMod .. " + W", hl.dsp.layout("togglesplit")) -- dwindle only
