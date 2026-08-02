@@ -1,4 +1,31 @@
 #!/bin/bash
+
+CONFIG_FILE="$HOME/.config/.bootstrap.conf"
+
+if [[ ! -f "$CONFIG_FILE" ]]; then
+  while true; do
+    read -rp "Is this your personal PC? (y/n): " answer
+    case "$answer" in
+    [Yy]*)
+      IS_PERSONAL_PC=true
+      break
+      ;;
+    [Nn]*)
+      IS_PERSONAL_PC=false
+      break
+      ;;
+    *)
+      echo "Please answer y or n."
+      ;;
+    esac
+  done
+
+  echo "IS_PERSONAL_PC=$IS_PERSONAL_PC" >"$CONFIG_FILE"
+fi
+
+# Load the saved value
+source "$CONFIG_FILE"
+
 needs_reboot=0
 
 sudo -v
@@ -114,6 +141,11 @@ git config --global interactive.diffFilter 'delta --color-only'
 git config --global delta.navigate true
 git config --global delta.dark true # or `delta.light true`, or omit for auto-detection
 git config --global merge.conflictStyle zdiff3
+
+if [[ -v IS_PERSONAL_PC ]]; then
+  pacman -Qi meson &>/dev/null || sudo pacman -S --noconfirm meson
+  pacman -Qi kdeconnect &>/dev/null || sudo pacman -S --noconfirm kdeconnect
+fi
 
 (
   cd "$HOME" && yadm submodule update --recursive --init
