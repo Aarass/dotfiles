@@ -108,6 +108,13 @@ sudo chmod +x ~/.config/rofi/pickers/confirm.sh
 sudo chmod +x ~/.config/rofi/pickers/power_menu.sh
 sudo chmod +x ~/.config/rofi/pickers/app_launcher.sh
 
+pacman -Qi git-delta &>/dev/null || sudo pacman -S --noconfirm git-delta
+git config --global core.pager delta
+git config --global interactive.diffFilter 'delta --color-only'
+git config --global delta.navigate true
+git config --global delta.dark true # or `delta.light true`, or omit for auto-detection
+git config --global merge.conflictStyle zdiff3
+
 (
   cd "$HOME" && yadm submodule update --recursive --init
 )
