@@ -146,11 +146,10 @@ git config --global merge.conflictStyle zdiff3
 
 yay -Qi localsend-bin &>/dev/null || yay -S --noconfirm localsend-bin
 
-if [[ -v IS_PERSONAL_PC ]]; then
+if [[ -v IS_PERSONAL_PC && "$IS_PERSONAL_PC" == "true" ]]; then
   pacman -Qi meson &>/dev/null || sudo pacman -S --noconfirm meson
 else
-  pacman -Qi dotnet-runtime &>/dev/null || sudo pacman -S --noconfirm dotnet-runtime
-  pacman -Qi dotnet-sdk &>/dev/null || sudo pacman -S --noconfirm dotnet-sdk
+  pacman -Qi dotnet-sdk-8.0 &>/dev/null || sudo pacman -S --noconfirm dotnet-sdk-8.0
 fi
 
 (
