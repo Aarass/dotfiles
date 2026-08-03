@@ -152,6 +152,10 @@ else
   pacman -Qi dotnet-sdk-8.0 &>/dev/null || sudo pacman -S --noconfirm dotnet-sdk-8.0
 fi
 
+sudo chmod +x ~/.config/ftwa/excalidraw.sh && ~/.config/ftwa/excalidraw.sh
+sudo chmod +x ~/.config/ftwa/youtube-music.sh && ~/.config/ftwa/youtube-music.sh
+sudo chmod +x ~/.config/ftwa/gmail.sh && ~/.config/ftwa/gmail.sh
+
 (
   cd "$HOME" && yadm submodule update --recursive --init
 )
