@@ -45,6 +45,7 @@ pacman -Qi lsd &>/dev/null || sudo pacman -S --noconfirm lsd
 pacman -Qi zoxide &>/dev/null || sudo pacman -S --noconfirm zoxide
 pacman -Qi playerctl &>/dev/null || sudo pacman -S --noconfirm playerctl
 pacman -Qi brightnessctl &>/dev/null || sudo pacman -S --noconfirm brightnessctl
+yay -Qi pwvucontrol &>/dev/null || yay -S --noconfirm pwvucontrol
 
 pacman -Qi grim &>/dev/null || sudo pacman -S --noconfirm grim
 pacman -Qi slurp &>/dev/null || sudo pacman -S --noconfirm slurp
@@ -147,6 +148,9 @@ yay -Qi localsend-bin &>/dev/null || yay -S --noconfirm localsend-bin
 
 if [[ -v IS_PERSONAL_PC ]]; then
   pacman -Qi meson &>/dev/null || sudo pacman -S --noconfirm meson
+else
+  pacman -Qi dotnet-runtime &>/dev/null || sudo pacman -S --noconfirm dotnet-runtime
+  pacman -Qi dotnet-sdk &>/dev/null || sudo pacman -S --noconfirm dotnet-sdk
 fi
 
 (
