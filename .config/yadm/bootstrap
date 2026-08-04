@@ -89,6 +89,8 @@ pacman -Qi obsidian &>/dev/null || sudo pacman -S --noconfirm obsidian
 pacman -Qi pipewire-pulse &>/dev/null || sudo pacman -S --noconfirm pipewire-pulse
 pacman -Qi obs-studio &>/dev/null || sudo pacman -S --noconfirm obs-studio
 
+yay -Qi vex-tui-bin &>/dev/null || yay -S --noconfirm vex-tui-bin
+
 pacman -Qi lua &>/dev/null || sudo pacman -S --noconfirm lua
 pacman -Qi lua51 &>/dev/null || sudo pacman -S --noconfirm lua51
 pacman -Qi luarocks &>/dev/null || sudo pacman -S --noconfirm luarocks
