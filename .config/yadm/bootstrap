@@ -152,10 +152,12 @@ if [[ -v IS_PERSONAL_PC && "$IS_PERSONAL_PC" == "true" ]]; then
   pacman -Qi meson &>/dev/null || sudo pacman -S --noconfirm meson
 else
   pacman -Qi dotnet-sdk-8.0 &>/dev/null || sudo pacman -S --noconfirm dotnet-sdk-8.0
+  pacman -Qi android-tools &>/dev/null || sudo pacman -S --noconfirm android-tools
 fi
 
 sudo chmod +x ~/.config/ftwa/excalidraw.sh && ~/.config/ftwa/excalidraw.sh
 sudo chmod +x ~/.config/ftwa/youtube-music.sh && ~/.config/ftwa/youtube-music.sh
+sudo chmod +x ~/.config/ftwa/youtube.sh && ~/.config/ftwa/youtube.sh
 sudo chmod +x ~/.config/ftwa/gmail.sh && ~/.config/ftwa/gmail.sh
 
 (
