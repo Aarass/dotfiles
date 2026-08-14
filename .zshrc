@@ -21,6 +21,7 @@ alias dcps='docker compose ps --all --format "table {{.Name}}\t{{.Service}}\t{{.
 alias ls=lsd
 
 eval "$(zoxide init zsh --cmd cd)"
+FZF_ALT_C_COMMAND= FZF_CTRL_T_COMMAND= source <(fzf --zsh)
 
 if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"

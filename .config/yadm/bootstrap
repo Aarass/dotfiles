@@ -88,6 +88,7 @@ pacman -Qi bitwarden &>/dev/null || sudo pacman -S --noconfirm bitwarden
 pacman -Qi obsidian &>/dev/null || sudo pacman -S --noconfirm obsidian
 pacman -Qi pipewire-pulse &>/dev/null || sudo pacman -S --noconfirm pipewire-pulse
 pacman -Qi obs-studio &>/dev/null || sudo pacman -S --noconfirm obs-studio
+pacman -Qi loupe &>/dev/null || sudo pacman -S --noconfirm loupe
 
 yay -Qi vex-tui-bin &>/dev/null || yay -S --noconfirm vex-tui-bin
 
