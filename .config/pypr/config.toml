@@ -1,0 +1,12 @@
+[pyprland]
+plugins = [
+    "scratchpads",
+]
+
+[scratchpads.toolbox]
+command = "kitty --class kitty-dropterm sh -c '~/.config/scripts/toolbox.sh'"
+class = "kitty-dropterm"
+animation = ""
+position = "12% 15px"
+size = "75% 60%"
+max_size = "1920px 100%"

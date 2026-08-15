@@ -30,6 +30,17 @@ needs_reboot=0
 
 sudo -v
 
+install_yay() {
+  tmpdir=$(mktemp -d) &&
+    git clone https://aur.archlinux.org/yay-bin.git "$tmpdir/yay-bin" &&
+    (
+      cd "$tmpdir/yay-bin" &&
+        makepkg -si
+    )
+  rm -rf "$tmpdir"
+}
+command -v yay &>/dev/null || install_yay
+
 pacman -Qi ttf-jetbrains-mono-nerd &>/dev/null || sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd
 pacman -Qi otf-font-awesome &>/dev/null || sudo pacman -S --noconfirm otf-font-awesome
 
@@ -102,18 +113,6 @@ pacman -Qi go &>/dev/null || sudo pacman -S --noconfirm go
 pacman -Qi nodejs &>/dev/null || sudo pacman -S --noconfirm nodejs
 pacman -Qi npm &>/dev/null || sudo pacman -S --noconfirm npm
 
-install_yay() {
-  tmpdir=$(mktemp -d) &&
-    git clone https://aur.archlinux.org/yay-bin.git "$tmpdir/yay-bin" &&
-    (
-      cd "$tmpdir/yay-bin" &&
-        makepkg -si
-    )
-  rm -rf "$tmpdir"
-}
-
-command -v yay &>/dev/null || install_yay
-
 yay -Qi pureref &>/dev/null || yay -S --noconfirm pureref
 yay -Qi zen-browser-bin &>/dev/null || yay -S --noconfirm zen-browser-bin
 yay -Qi google-chrome &>/dev/null || yay -S --noconfirm google-chrome
@@ -148,6 +147,10 @@ git config --global delta.dark true # or `delta.light true`, or omit for auto-de
 git config --global merge.conflictStyle zdiff3
 
 yay -Qi localsend-bin &>/dev/null || yay -S --noconfirm localsend-bin
+yay -Qi pyprland &>/dev/null || yay -S --noconfirm pyprland
+
+sudo chmod +x ~/.config/scripts/toolbox.sh
+sudo chmod +x ~/.config/scripts/toolbox/*
 
 if [[ -v IS_PERSONAL_PC && "$IS_PERSONAL_PC" == "true" ]]; then
   pacman -Qi meson &>/dev/null || sudo pacman -S --noconfirm meson

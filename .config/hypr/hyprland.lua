@@ -49,6 +49,8 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ 
 -- TODO
 -- hl.bind(mainMod .. " + W", hl.dsp.layout("togglesplit")) -- dwindle only
 
+hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("pypr-client toggle toolbox"))
+
 hl.bind(mainMod .. " + T", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + semicolon", hl.dsp.window.move({ workspace = "special:magic" }))
 
