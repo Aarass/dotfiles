@@ -9,7 +9,7 @@ while true; do
   choice=$(printf '%s\n' "${!tools[@]}" | fzf --layout=reverse)
   path="${tools[$choice]}"
 
-  "$path"
+  bash -c "$path"
 
   read -rp "Press Enter to close..."
   pypr-client toggle toolbox

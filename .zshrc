@@ -1,5 +1,6 @@
 # Created by newuser for 5.9.2
 export ZSH="$HOME/.oh-my-zsh"
+export PATH="$PATH:$HOME/.local/bin"
 
 ZSH_THEME="robbyrussell"
 

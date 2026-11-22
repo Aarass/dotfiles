@@ -103,15 +103,18 @@ pacman -Qi loupe &>/dev/null || sudo pacman -S --noconfirm loupe
 
 yay -Qi vex-tui-bin &>/dev/null || yay -S --noconfirm vex-tui-bin
 
+pacman -Qi go &>/dev/null || sudo pacman -S --noconfirm go
+pacman -Qi nodejs &>/dev/null || sudo pacman -S --noconfirm nodejs
+pacman -Qi npm &>/dev/null || sudo pacman -S --noconfirm npm
+npm config set prefix "$HOME/.local"
+
 pacman -Qi lua &>/dev/null || sudo pacman -S --noconfirm lua
 pacman -Qi lua51 &>/dev/null || sudo pacman -S --noconfirm lua51
 pacman -Qi luarocks &>/dev/null || sudo pacman -S --noconfirm luarocks
 pacman -Qi tree-sitter-cli &>/dev/null || sudo pacman -S --noconfirm tree-sitter-cli
+pacman -Qi tectonic &>/dev/null || sudo pacman -S --noconfirm tectonic
+pacman -Qi mermaid-cli &>/dev/null || sudo pacman -S --noconfirm mermaid-cli
 pacman -Qi neovim &>/dev/null || sudo pacman -S --noconfirm neovim
-
-pacman -Qi go &>/dev/null || sudo pacman -S --noconfirm go
-pacman -Qi nodejs &>/dev/null || sudo pacman -S --noconfirm nodejs
-pacman -Qi npm &>/dev/null || sudo pacman -S --noconfirm npm
 
 yay -Qi pureref &>/dev/null || yay -S --noconfirm pureref
 yay -Qi zen-browser-bin &>/dev/null || yay -S --noconfirm zen-browser-bin
@@ -159,8 +162,9 @@ else
   pacman -Qi android-tools &>/dev/null || sudo pacman -S --noconfirm android-tools
 fi
 
+yay -Qi limusic-bin &>/dev/null || yay -S --noconfirm limusic-bin
+
 sudo chmod +x ~/.config/ftwa/excalidraw.sh && ~/.config/ftwa/excalidraw.sh
-sudo chmod +x ~/.config/ftwa/youtube-music.sh && ~/.config/ftwa/youtube-music.sh
 sudo chmod +x ~/.config/ftwa/youtube.sh && ~/.config/ftwa/youtube.sh
 sudo chmod +x ~/.config/ftwa/gmail.sh && ~/.config/ftwa/gmail.sh
 

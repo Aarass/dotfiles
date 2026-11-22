@@ -17,7 +17,7 @@ local function setup_dev_env()
 		hl.dispatch(hl.dsp.exec_cmd("google-chrome-stable"))
 		hl.dispatch(hl.dsp.exec_cmd("obsidian"))
 		hl.dispatch(hl.dsp.exec_cmd("slack"))
-		hl.dispatch(hl.dsp.exec_cmd("gtk-launch ftwa-youtube-music.desktop"))
+		hl.dispatch(hl.dsp.exec_cmd("limusic-app"))
 	end
 
 	local function onAllWindowsOpened()
@@ -64,9 +64,9 @@ local function setup_dev_env()
 			end
 		elseif win.class == "google-chrome" then
 			windows["chrome"] = win.address
-		elseif win.class == "obsidian" then
+		elseif string.find(win.class, "obsidian") then
 			windows["obsidian"] = win.address
-		elseif string.find(win.class, "music.youtube") then
+		elseif win.class == "limusic-app" then
 			windows["music"] = win.address
 		else
 			hl.notification.create({ text = "Unexpected window: " .. win.title .. " - " .. win.class, timeout = 5000 })
